@@ -24,25 +24,26 @@ CHAT_ID=id_чата
 3. Запустить сервер:
 uvicorn main:app --reload
 4. Открыть сайт: `http://localhost:8000`
+
 ## Структура
-├── main.py          # FastAPI бэкенд
+    ├── main.py          # FastAPI бэкенд
 
-├── .env             # секреты (
+    ├── .env             # секреты 
 
-├── requirements.txt
+    ├── requirements.txt
 
-└── site/            # фронтенд
+    └── site/            # фронтенд
 
-├── index.html
+        ├── index.html
 
-├── metal.html
+        ├── metal.html
 
-├── roof.html
+        ├── roof.html
 
-├── css/
+        ├── css/
 
-├── images/
+        ├── images/
 
-├── sript-roof.js
+        ├── sript-roof.js
 
-└── script*.js
+        └── script*.js
