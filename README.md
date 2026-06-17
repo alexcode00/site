@@ -27,22 +27,22 @@ uvicorn main:app --reload
 ## Структура
 ├── main.py          # FastAPI бэкенд
 
-├── .env             # секреты (не заливать на GitHub)
+├── .env             # секреты (
 
 ├── requirements.txt
 
 └── site/            # фронтенд
 
-    ├── index.html
+├── index.html
 
-    ├── metal.html
+├── metal.html
 
-    ├── roof.html
+├── roof.html
 
-    ├── css/
+├── css/
 
-    ├── images/
+├── images/
 
-    ├── sript-roof.js
+├── sript-roof.js
 
-    └── script*.js
+└── script*.js
