@@ -47,7 +47,7 @@ app.mount("/site", StaticFiles(directory="site"), name="site")
 # главная страница
 @app.get("/")
 async def index():
-    return FileResponse("site/Index.html")
+    return FileResponse("site/index.html")
 @app.get("/metal")
 async def metal():
     return FileResponse("site/metal.html")
