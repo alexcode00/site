@@ -11,6 +11,7 @@ import httpx
 from pydantic import BaseModel, field_validator
 import re
 import asyncio
+from pyngrok import ngrok
 load_dotenv()
 app = FastAPI()
 
