@@ -84,7 +84,7 @@ if (form) {
         btn.disabled = true;
 
         try {
-            const response = await fetch("/send", {
+            const response = await fetch("/send", { 
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ name, phone, comment, product: selectedProduct || "Не указан" })

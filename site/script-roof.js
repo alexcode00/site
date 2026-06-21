@@ -93,7 +93,7 @@ if (form) {
         btn.disabled = true;
 
         try {
-            await fetch("/send", {
+            await fetch("/send", { 
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ name, phone, comment, product: selectedProduct || "Не указан" })
