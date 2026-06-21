@@ -84,13 +84,11 @@ if (form) {
         btn.disabled = true;
 
         try {
-            const response = await fetch("/send", { 
+            await fetch("/send", { 
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ name, phone, comment, product: selectedProduct || "Не указан" })
             });
-
-            await response.json();
 
             const successMsg = document.getElementById("successMessage");
             if (successMsg) {
