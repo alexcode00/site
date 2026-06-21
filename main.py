@@ -57,6 +57,7 @@ async def roof():
     return FileResponse("site/roof.html")
 @app.post("/send")
 async def send_message(data: FormData):
+    print(f"TOKEN: {TOKEN}, CHAT_ID: {CHAT_ID}")
     comment = data.comment if data.comment else "Не указано"
 
     message = f"""
