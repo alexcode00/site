@@ -55,6 +55,9 @@ async def metal():
 @app.get("/roof")
 async def roof():
     return FileResponse("site/roof.html")
+@app.get("/yandex_487ad58fecf9ca58")
+async def yandex():
+    return FileResponse("site/yandex_487ad58fecf9ca58.html")
 @app.post("/send")
 async def send_message(data: FormData):
     print(f"TOKEN: {TOKEN}, CHAT_ID: {CHAT_ID}")
