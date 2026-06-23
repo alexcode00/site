@@ -76,8 +76,11 @@ async def send_message(data: FormData):
 
 
 async def send_telegram(message: str):
-    async with httpx.AsyncClient() as client:
-        await client.post(
-            f"https://api.telegram.org/bot{TOKEN}/sendMessage",
-            json={"chat_id": CHAT_ID, "text": message}
-        )
+    try:
+        async with httpx.AsyncClient() as client:
+            response = await client.post(
+                f"https://morning-union-29d4.crazymortis333666.workers.dev/{TOKEN}/sendMessage",
+                json={"chat_id": CHAT_ID, "text": message}
+            )
+    except Exception as e:
+        print(f"TG error: {e}")
