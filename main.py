@@ -58,6 +58,9 @@ async def roof():
 @app.get("/yandex_487ad58fecf9ca58.html")
 async def yandex():
     return FileResponse("site/yandex_487ad58fecf9ca58.html")
+@app.get("/favicon.ico")
+async def favicon():
+    return FileResponse("site/favicon.ico")
 @app.post("/send")
 async def send_message(data: FormData):
     print(f"TOKEN: {TOKEN}, CHAT_ID: {CHAT_ID}")
