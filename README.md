@@ -20,7 +20,7 @@
 pip install -r requirements.txt
 2. Создать `.env` файл:
 TOKEN=токен_телеграм_бота
-CHAT_ID=id_чата
+CHAT_ID=[id_чата, id_чата]
 3. Запустить сервер:
 uvicorn main:app --reload
 4. Открыть сайт: `http://localhost:8000`
