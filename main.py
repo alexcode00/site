@@ -11,12 +11,13 @@ import httpx
 from pydantic import BaseModel, field_validator
 import re
 import asyncio
+import json
 
 load_dotenv()
 app = FastAPI()
 
 TOKEN = os.getenv("BOT_TOKEN")
-CHAT_ID = os.getenv("CHAT_ID")
+CHAT_ID = json.loads(os.getenv("CHAT_ID"))
 
 class FormData(BaseModel):
     name: str
@@ -63,7 +64,7 @@ async def favicon():
     return FileResponse("site/favicon.ico")
 @app.post("/send")
 async def send_message(data: FormData):
-    print(f"TOKEN: {TOKEN}, CHAT_ID: {CHAT_ID}")
+
     comment = data.comment if data.comment else "Не указано"
 
     message = f"""
@@ -82,11 +83,14 @@ async def send_message(data: FormData):
 
 
 async def send_telegram(message: str):
-    try:
-        async with httpx.AsyncClient() as client:
-            response = await client.post(
-                f"https://morning-union-29d4.crazymortis333666.workers.dev/{TOKEN}/sendMessage",
-                json={"chat_id": CHAT_ID, "text": message}
-            )
-    except Exception as e:
-        print(f"TG error: {e}")
+    async with httpx.AsyncClient() as client:
+        for chat_id in CHAT_ID:
+            try:
+                response = await client.post(
+                    f"https://morning-union-29d4.crazymortis333666.workers.dev/{TOKEN}/sendMessage",
+                    json={"chat_id": chat_id, "text": message, "parse_mode": "HTML"}
+                )
+                if not response.json().get("ok"):
+                    print(f"TG error for {chat_id}: {response.text}")
+            except Exception as e:
+                print(f"TG exception for {chat_id}: {e}")
