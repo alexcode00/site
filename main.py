@@ -65,6 +65,9 @@ async def favicon():
 @app.get("/sitemap.xml")
 async def sitemap():
     return FileResponse("sitemap.xml", media_type="application/xml")
+@app.get("/robots.txt")
+async def robots():
+    return FileResponse("robots.txt", media_type="text/plain")
 @app.post("/send")
 async def send_message(data: FormData):
 
