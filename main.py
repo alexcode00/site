@@ -62,6 +62,9 @@ async def yandex():
 @app.get("/favicon.ico")
 async def favicon():
     return FileResponse("site/favicon.ico")
+@app.get("/sitemap.xml")
+async def sitemap():
+    return FileResponse("sitemap.xml", media_type="application/xml")
 @app.post("/send")
 async def send_message(data: FormData):
 
